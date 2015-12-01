@@ -99,7 +99,7 @@
 				TargetAttributes = {
 					693D5AF41C0D69140036C5AB = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 63XRGK5AA7;
+						DevelopmentTeam = J9SWLCATR5;
 					};
 				};
 			};
@@ -252,9 +252,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = tabtest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yamamoto.tabtest;
+				PRODUCT_BUNDLE_IDENTIFIER = crhios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -263,9 +264,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = tabtest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yamamoto.tabtest;
+				PRODUCT_BUNDLE_IDENTIFIER = crhios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
