@@ -16,7 +16,7 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        txtChange.text = "テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更"
+        txtChange.text = "テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更"
         txtChange.numberOfLines = 0
         txtChange.sizeToFit()
         

@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="200" y="122" width="200" height="17"/>
+                                <rect key="frame" x="200" y="107" width="200" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="uYf-BK-cYZ"/>
                                 </constraints>
@@ -34,12 +34,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZc-ex-AVb">
+                                <rect key="frame" x="200" y="270" width="200" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="EYu-PY-CKC"/>
+                                    <constraint firstAttribute="width" constant="200" id="xL7-cg-v8T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="50" id="86Q-cb-eIX"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="9To-el-6hb"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="30" id="ftV-fH-Jb2"/>
+                            <constraint firstItem="dZc-ex-AVb" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="AEI-5T-tcT"/>
+                            <constraint firstItem="dZc-ex-AVb" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Vii-2U-Zno"/>
+                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="15" id="ftV-fH-Jb2"/>
                             <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="qd1-On-7ZW"/>
                         </constraints>
                     </view>
