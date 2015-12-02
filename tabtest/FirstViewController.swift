@@ -21,12 +21,13 @@ class FirstViewController: UIViewController {
         txtChange.text = "テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更"
         txtChange.sizeToFit()
         
-        
-        
     }
 
     @IBAction func realTimeText() {
         txtChange.text = testTextField.text
+    }
+    
+    @IBAction func keyClose() {
     }
     
     override func didReceiveMemoryWarning() {

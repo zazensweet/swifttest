@@ -43,6 +43,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="keyClose" destination="9pv-A4-QxB" eventType="editingDidEndOnExit" id="465-tp-fRX"/>
                                     <action selector="realTimeText" destination="9pv-A4-QxB" eventType="editingChanged" id="vkD-yG-awG"/>
                                 </connections>
                             </textField>
