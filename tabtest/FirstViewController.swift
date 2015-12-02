@@ -12,16 +12,23 @@ class FirstViewController: UIViewController {
 
     @IBOutlet weak var txtChange: UILabel!
     
+    @IBOutlet weak var testTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         txtChange.text = "テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更"
-        txtChange.numberOfLines = 0
         txtChange.sizeToFit()
+        
+        
         
     }
 
+    @IBAction func realTimeText() {
+        txtChange.text = testTextField.text
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

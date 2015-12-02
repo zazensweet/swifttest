@@ -25,7 +25,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
                                 <rect key="frame" x="200" y="107" width="200" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="uYf-BK-cYZ"/>
@@ -42,6 +42,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="realTimeText" destination="9pv-A4-QxB" eventType="editingChanged" id="vkD-yG-awG"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -56,6 +59,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Facebook" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="testTextField" destination="dZc-ex-AVb" id="ah2-UR-Iz9"/>
                         <outlet property="txtChange" destination="A5M-7J-77L" id="lcL-O1-eY1"/>
                     </connections>
                 </viewController>
