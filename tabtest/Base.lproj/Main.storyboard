@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="w93-oo-h5N">
             <objects>
                 <viewController id="MWE-so-v2X" sceneMemberID="viewController">
@@ -92,6 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="3Yi-cV-Cjk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qV3-TE-dTf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,6 +111,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="MWE-so-v2X" kind="relationship" relationship="viewControllers" id="tT0-nr-rYt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
