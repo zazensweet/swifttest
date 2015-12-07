@@ -47,16 +47,10 @@
                                                 <rect key="frame" x="200" y="82" width="200" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="dkQ-Pl-Tkf"/>
-                                                    <constraint firstAttribute="width" constant="200" id="uYf-BK-cYZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="uYf-BK-cYZ"/>
-                                                    </mask>
-                                                </variation>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

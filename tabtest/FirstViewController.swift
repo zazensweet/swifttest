@@ -19,22 +19,44 @@ class FirstViewController: UIViewController {
     // スクロールビュー
     @IBOutlet weak var scvBackGround: UIScrollView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // ラベルのテキストを置き換える
-        txtChange.text = "テキストをプログラムから変更テキストをプログラムから変更テキストをプログラムから変更"
+        // テキストフィールドとラベルの初期化
+        testTextField.text = ""
+        txtChange.text = ""
+        testTextField.layer.borderWidth = 4
+        testTextField.layer.borderColor = UIColor.grayColor().CGColor
         
         // ラベルを可変
         txtChange.sizeToFit()
         
     }
-
-    // テキストフィールドに入力するとリアルタイムにラベルに反映される
+    
+    
+    
     @IBAction func realTimeText() {
+        
+        // テキストフィールドに入力するとリアルタイムにラベルに反映される
         txtChange.text = testTextField.text
+        
+        // テキストフィールドの文字数を取得
+        let countTF = Int(testTextField.text!.characters.count)
+        print(countTF)
+        
+        // 文字数が10以下は枠線黒、11以上は枠線赤
+        if countTF <= 10 {
+            print("10以下")
+            testTextField.layer.borderColor = UIColor.blackColor().CGColor
+        } else {
+            print("11以上")
+            testTextField.layer.borderColor = UIColor.redColor().CGColor
+        }
+        
     }
+    
     
     // リターンするとキーボードを閉じる
     @IBAction func keyClose() {
@@ -64,9 +86,6 @@ class FirstViewController: UIViewController {
         
         let txtLimit = testTextField.frame.origin.y + testTextField.frame.height + 8.0
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-        
-        print("テキストフィールドの下辺：\(txtLimit)")
-        print("キーボードの上辺：\(kbdLimit)")
         
         if txtLimit >= kbdLimit {
             scvBackGround.contentOffset.y = txtLimit - kbdLimit
