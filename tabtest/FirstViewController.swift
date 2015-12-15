@@ -8,7 +8,9 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UITextFieldDelegate {
+    
+    
     
     // ラベル
     @IBOutlet weak var txtChange: UILabel!
@@ -19,28 +21,102 @@ class FirstViewController: UIViewController {
     // スクロールビュー
     @IBOutlet weak var scvBackGround: UIScrollView!
     
+    // 通知センターのインスタンス
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+    
+    // アクティブなテキストフィールド
+    var activeTextField = UITextField()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // テキストフィールドとラベルの初期化
+        // テキストフィールドのdelegate設定
+        testTextField.delegate = self
+        
+        // テキストフィールドの初期設定
         testTextField.text = ""
-        txtChange.text = ""
         testTextField.layer.borderWidth = 4
         testTextField.layer.borderColor = UIColor.grayColor().CGColor
         
-        // ラベルを可変
+        // ラベルの初期設定
+        txtChange.text = "テキストフィールドの文字が反映される"
+        txtChange.layer.borderWidth = 1
+        txtChange.layer.borderColor = UIColor.grayColor().CGColor
         txtChange.sizeToFit()
         
     }
     
     
     
-    @IBAction func realTimeText() {
+    // デリゲートメソッド：テキストフィールドに改行が入力された時
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        // テキストフィールドに入力するとリアルタイムにラベルに反映される
-        txtChange.text = testTextField.text
+        // キーボードを閉じる
+        self.view.endEditing(true)
+        
+        // 改行の入力を行わない
+        return false
+        
+    }
+    
+    
+    
+    // デリゲートメソッド：テキストフィールドが入力状態になった時
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        
+        // アクティブなテキストフィールドをセット
+        activeTextField = textField
+        return true
+        
+    }
+    
+    
+    
+    // 画面が表示される直前に実行されるメソッド
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // キーボードの表示時：イベントハンダラとしてaddObserverで登録
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+        
+        // キーボードの非表示時：イベントハンダラとしてaddObserverで登録
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        
+        // テキストフィールド変更時：イベントハンダラとしてaddObserverで登録
+        notificationCenter.addObserver(self, selector: "handleTextFieldDidChange:", name: UITextFieldTextDidChangeNotification, object: nil)
+        
+        // テキストフィールド編集終了時：イベントハンダラとしてaddObserverで登録
+        notificationCenter.addObserver(self, selector: "handleTextFieldDidEndEditing:", name: UITextFieldTextDidEndEditingNotification, object: nil)
+        
+    }
+    
+    
+    
+    // 別の画面に遷移した直後に実行されるメソッド
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // キーボードの表示時：removeObserverで解除
+        notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        
+        // キーボードの非表示時：removeObserverで解除
+        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        
+        // テキストフィールド変更時：removeObserverで解除
+        notificationCenter.removeObserver(self, name: UITextFieldTextDidChangeNotification, object: nil)
+        
+        // テキストフィールド編集終了時：removeObserverで解除
+        notificationCenter.removeObserver(self, name: UITextFieldTextDidEndEditingNotification, object: nil)
+        
+    }
+    
+    
+    
+    // テキストフィールド変更時：実行されるメソッド
+    func handleTextFieldDidChange(notification: NSNotification) {
         
         // テキストフィールドの文字数を取得
         let countTF = Int(testTextField.text!.characters.count)
@@ -55,66 +131,50 @@ class FirstViewController: UIViewController {
             testTextField.layer.borderColor = UIColor.redColor().CGColor
         }
         
+        // ラベルにテキストフィールドの内容を反映
+        txtChange.text = testTextField.text
+        
     }
     
     
-    // リターンするとキーボードを閉じる
-    @IBAction func keyClose() {
+    
+    // テキストフィールド編集終了時：実行されるメソッド
+    func handleTextFieldDidEndEditing(notification: NSNotification) {
+        
+        // ラベルにテキストフィールドの内容を反映
+        txtChange.text = testTextField.text
+        
     }
     
     
     
-    
-    
-    // テキストフィールドタップ
-    func textFieldShouldBeginEditing(textField: UITextField!) -> Bool {
-        testTextField = textField
-        return true
-    }
-    
-    // テキストフィールドリターン
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        view.endEditing(true)
-        return true
-    }
-    
+    // キーボードの表示時：実行されるメソッド
     func handleKeyboardWillShowNotification(notification: NSNotification) {
         
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
+        let boundSize: CGSize = UIScreen.mainScreen().bounds.size
         
-        let txtLimit = testTextField.frame.origin.y + testTextField.frame.height + 8.0
-        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        // テキストフィールドの下位置
+        let textFieldPositionBottom = activeTextField.frame.origin.y + activeTextField.frame.height
         
-        if txtLimit >= kbdLimit {
-            scvBackGround.contentOffset.y = txtLimit - kbdLimit
+        // キーボードの上位置
+        let keyboardPositionTop = boundSize.height - keyboardScreenEndFrame.size.height
+        
+        // スクロールビューを移動させる
+        if textFieldPositionBottom >= keyboardPositionTop {
+            scvBackGround.contentOffset.y = (textFieldPositionBottom + 8.0) - keyboardPositionTop
         }
         
     }
     
+    
+    
+    // キーボードの非表示時：実行されるメソッド
     func handleKeyboardWillHideNotification(notification: NSNotification) {
         scvBackGround.contentOffset.y = 0
     }
     
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
-        
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-        
-    }
     
     
     override func didReceiveMemoryWarning() {
