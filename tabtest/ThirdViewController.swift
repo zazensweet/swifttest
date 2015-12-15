@@ -70,7 +70,7 @@ class ThirdViewController: UIViewController, UITextFieldDelegate {
         labelEmail.text = ""
         labelPassword.text = ""
         labelFree.text = ""
-        
+
     }
     
     
