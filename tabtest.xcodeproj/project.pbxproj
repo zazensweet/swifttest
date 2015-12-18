@@ -13,6 +13,7 @@
 		693D5B001C0D69140036C5AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693D5AFE1C0D69140036C5AB /* Main.storyboard */; };
 		693D5B021C0D69140036C5AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693D5B011C0D69140036C5AB /* Assets.xcassets */; };
 		693D5B051C0D69140036C5AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693D5B031C0D69140036C5AB /* LaunchScreen.storyboard */; };
+		6993F10B1C22B73C008AD106 /* jsondata.json in Resources */ = {isa = PBXBuildFile; fileRef = 6993F10A1C22B73C008AD106 /* jsondata.json */; };
 		69A7AE101C182D8800889EFC /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7AE0F1C182D8800889EFC /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		693D5B011C0D69140036C5AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		693D5B041C0D69140036C5AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		693D5B061C0D69140036C5AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6993F10A1C22B73C008AD106 /* jsondata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsondata.json; sourceTree = "<group>"; };
 		69A7AE0F1C182D8800889EFC /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				693D5B011C0D69140036C5AB /* Assets.xcassets */,
 				693D5B031C0D69140036C5AB /* LaunchScreen.storyboard */,
 				693D5B061C0D69140036C5AB /* Info.plist */,
+				6993F10A1C22B73C008AD106 /* jsondata.json */,
 			);
 			path = tabtest;
 			sourceTree = "<group>";
@@ -130,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				693D5B051C0D69140036C5AB /* LaunchScreen.storyboard in Resources */,
+				6993F10B1C22B73C008AD106 /* jsondata.json in Resources */,
 				693D5B021C0D69140036C5AB /* Assets.xcassets in Resources */,
 				693D5B001C0D69140036C5AB /* Main.storyboard in Resources */,
 			);
