@@ -15,6 +15,7 @@
 		693D5B051C0D69140036C5AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693D5B031C0D69140036C5AB /* LaunchScreen.storyboard */; };
 		6993F10B1C22B73C008AD106 /* jsondata.json in Resources */ = {isa = PBXBuildFile; fileRef = 6993F10A1C22B73C008AD106 /* jsondata.json */; };
 		69A7AE101C182D8800889EFC /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7AE0F1C182D8800889EFC /* ThirdViewController.swift */; };
+		69E39FB41C294E3900F30A19 /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E39FB31C294E3900F30A19 /* FourViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		693D5B061C0D69140036C5AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6993F10A1C22B73C008AD106 /* jsondata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsondata.json; sourceTree = "<group>"; };
 		69A7AE0F1C182D8800889EFC /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		69E39FB31C294E3900F30A19 /* FourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				693D5AFC1C0D69140036C5AB /* SecondViewController.swift */,
 				69A7AE0F1C182D8800889EFC /* ThirdViewController.swift */,
 				693D5AFE1C0D69140036C5AB /* Main.storyboard */,
+				69E39FB31C294E3900F30A19 /* FourViewController.swift */,
 				693D5B011C0D69140036C5AB /* Assets.xcassets */,
 				693D5B031C0D69140036C5AB /* LaunchScreen.storyboard */,
 				693D5B061C0D69140036C5AB /* Info.plist */,
@@ -148,6 +151,7 @@
 			files = (
 				693D5AFD1C0D69140036C5AB /* SecondViewController.swift in Sources */,
 				693D5AF91C0D69140036C5AB /* AppDelegate.swift in Sources */,
+				69E39FB41C294E3900F30A19 /* FourViewController.swift in Sources */,
 				69A7AE101C182D8800889EFC /* ThirdViewController.swift in Sources */,
 				693D5AFB1C0D69140036C5AB /* FirstViewController.swift in Sources */,
 			);

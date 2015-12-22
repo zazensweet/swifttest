@@ -17,50 +17,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var testTable: UITableView!
 
     
-    //// 「　NewFile　→　Other　→　Empty　」JSONデータ（jsondata.json）を作成して試してみる。
-    var json:NSArray!
-    
-    func getJson() {
-        
-        // let URL:NSURL = NSURL(string: "https://")!
-        // let jsonData :NSData = NSData(contentsOfURL: URL)!
-        
-        // 擬似的にJSONデータを読む
-        let path = NSBundle.mainBundle().pathForResource("jsondata", ofType: "json")
-        let myjson = NSData(contentsOfFile: path!)
-        do {
-            json = try NSJSONSerialization.JSONObjectWithData(myjson!, options: .MutableContainers) as! NSArray
-        } catch  {
-            // エラー処理
-        }
-        
-        // 反応を見てみる
-        
-        print("オプショナルなまま取り出す：\(json[0]["title"])")
-        print("オプショナルなまま取り出す：\(json[0]["data"])")
-        
-        if let hoge = json[1]["data"] as? NSArray {
-            print("as? NSArrayにして取り出す（オプショナルじゃなくなる）：\(hoge[0])")
-        } else {
-            print("fail")
-        }
 
-    }
+    // JSONを格納
+    private var jsonData = [[String:AnyObject]]()
     
-    
-    
-    ////// とりあえずの措置としてJSONを使わず。。
-    // セクションのタイトル情報
-    let sectionTitle = ["Section1", "Section2", "Section3", "Section4"]
-    
-    // セル情報
-    let tableData = [
-        ["section1-1", "section1-2", "section1-3", "section1-4"],
-        ["section2-1", "section2-2", "section2-3", "section2-4"],
-        ["section3-1", "section3-2", "section3-3", "section3-4"],
-        ["section4-1", "section4-2", "section4-3", "section4-4"]
-    ]
-    
+    // JSONデータ
+    private let jsonString:String = "[{\"title\": \"Section1\", \"data\": [\"section1-1\",\"section1-2\",\"section1-3\",\"section1-4\"]},{\"title\": \"Section2\", \"data\": [\"section2-1\",\"section2-2\",\"section2-3\",\"section2-4\"]},{\"title\": \"Section3\", \"data\": [\"section3-1\",\"section3-2\",\"section3-3\",\"section3-4\"]},{\"title\": \"Section4\", \"data\": [\"section4-1\",\"section4-2\",\"section4-3\",\"section4-4\"]}]"
 
     
     override func viewDidLoad() {
@@ -73,42 +35,47 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // テーブルビューのデータソースを設定する
         testTable.dataSource = self
         
-        //// JSON的な試し
-        getJson()
+        // チェック
+        do {
+            // JSON文字列をNSDataに変換
+            let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding)
+            // NSDataを配列に変換して格納
+            jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! Array
+            print(jsonData)
+        } catch {
+            print("error: \(error)")
+        }
+        
         
     }
     
     
     
-    /*　UITableViewDataSourceプロトコル */
-    
-    // セクションの個数を決める
+    // セクションの個数を返す
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return sectionTitle.count
+        return jsonData.count
     }
     
-    // セクション内の行数を決める
+    // セクション毎の行数を返す
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionData = tableData[section]
-        return sectionData.count
+        return jsonData[section]["data"] == nil ? 0 : jsonData[section]["data"]!.count
     }
     
-    // セクションのタイトルを決める
+    // セクションのタイトルを返す
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitle[section]
+        return String(jsonData[section]["title"]!)
     }
-    
-    // セルを作る
+
+    // 各行のセルを返す
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // セルを用意する
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: "myCell")
-        // セクションの内容を取り出す
-        let sectionData = tableData[indexPath.section]
-        // セクションの内容かセルに入れる情報を取り出す
-        let cellData = sectionData[indexPath.row]
-        // 用意されたセルに情報入れる
-        cell.textLabel?.text = cellData
+        let cell = UITableViewCell(style:.Default, reuseIdentifier: "cell")
+        if jsonData[indexPath.section]["data"] == nil {
+            return cell
+        }
+        cell.textLabel?.text = jsonData[indexPath.section]["data"]![indexPath.row] == nil ? "-" : String(jsonData[indexPath.section]["data"]![indexPath.row])
         return cell
+        
     }
 
     

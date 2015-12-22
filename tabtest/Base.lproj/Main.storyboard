@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Facebook-->
+        <!--TextField1-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="tabtest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="TextField1" id="9pv-A4-QxB" customClass="FirstViewController" customModule="tabtest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -69,7 +69,7 @@
                             <constraint firstAttribute="trailing" secondItem="Pcs-cw-iym" secondAttribute="trailing" id="vbY-pz-vaT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Facebook" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="TextField1" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="scvBackGround" destination="Pcs-cw-iym" id="Vey-IL-k9D"/>
                         <outlet property="testTextField" destination="dZc-ex-AVb" id="ah2-UR-Iz9"/>
@@ -80,16 +80,16 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Twitter-->
+        <!--TableView-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="tabtest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="TableView" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="tabtest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c5X-xd-UA7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Twitter" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="TableView" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="testTable" destination="c5X-xd-UA7" id="4jE-tf-qwn"/>
                     </connections>
@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--設定-->
+        <!--TextField2-->
         <scene sceneID="w93-oo-h5N">
             <objects>
-                <viewController id="MWE-so-v2X" customClass="ThirdViewController" customModule="tabtest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="TextField2" id="MWE-so-v2X" customClass="ThirdViewController" customModule="tabtest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ni2-v4-un1"/>
                         <viewControllerLayoutGuide type="bottom" id="Kih-cV-0S6"/>
@@ -210,7 +210,7 @@
                             <constraint firstItem="ve4-6X-YuD" firstAttribute="leading" secondItem="RDu-Pu-kwK" secondAttribute="leading" id="zAS-J8-76J"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="設定" id="3Yi-cV-Cjk"/>
+                    <tabBarItem key="tabBarItem" title="TextField2" id="3Yi-cV-Cjk"/>
                     <connections>
                         <outlet property="labelEmail" destination="1mE-nP-TKo" id="a69-JW-P9p"/>
                         <outlet property="labelFree" destination="gZB-ce-h9V" id="X6O-KD-wb2"/>
@@ -244,11 +244,119 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="MWE-so-v2X" kind="relationship" relationship="viewControllers" id="tT0-nr-rYt"/>
+                        <segue destination="vyg-Os-L7a" kind="relationship" relationship="viewControllers" id="X77-M1-E1K"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--WebView-->
+        <scene sceneID="ydt-aS-jtF">
+            <objects>
+                <viewController title="WebView" id="vyg-Os-L7a" customClass="FourViewController" customModule="tabtest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dhu-rW-0DO"/>
+                        <viewControllerLayoutGuide type="bottom" id="zGG-1g-a2A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kiE-CQ-6AA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNE-R7-HL1">
+                                <rect key="frame" x="0.0" y="140" width="600" height="460"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isq-Bi-LJS">
+                                <rect key="frame" x="170" y="100" width="30" height="30"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="goURL" destination="vyg-Os-L7a" eventType="touchUpInside" id="4e4-ar-kZc"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HXF-Vp-6qZ">
+                                <rect key="frame" x="20" y="60" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnd-0R-MwU">
+                                <rect key="frame" x="20" y="100" width="30" height="30"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="returnPage" destination="vyg-Os-L7a" eventType="touchUpInside" id="nHG-PA-uhQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9M-wc-uvH">
+                                <rect key="frame" x="70" y="100" width="30" height="30"/>
+                                <state key="normal" title="進む"/>
+                                <connections>
+                                    <action selector="nextPage" destination="vyg-Os-L7a" eventType="touchUpInside" id="7Tj-a7-eMe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASp-if-4wE">
+                                <rect key="frame" x="120" y="100" width="30" height="30"/>
+                                <state key="normal" title="更新"/>
+                                <connections>
+                                    <action selector="refreshPage" destination="vyg-Os-L7a" eventType="touchUpInside" id="BYj-ix-oT8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6J-q1-Rlc">
+                                <rect key="frame" x="220" y="100" width="30" height="30"/>
+                                <state key="normal" title="API"/>
+                                <connections>
+                                    <action selector="getApi" destination="vyg-Os-L7a" eventType="touchUpInside" id="Bzq-1g-1X0"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f5k-vX-ZkO">
+                                <rect key="frame" x="20" y="431" width="560" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="0GP-Kz-WpI"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d9M-wc-uvH" firstAttribute="leading" secondItem="gnd-0R-MwU" secondAttribute="trailing" constant="20" id="0QB-rF-Z2J"/>
+                            <constraint firstAttribute="trailing" secondItem="HXF-Vp-6qZ" secondAttribute="trailing" constant="20" id="1St-BV-rYU"/>
+                            <constraint firstItem="zGG-1g-a2A" firstAttribute="top" secondItem="f5k-vX-ZkO" secondAttribute="bottom" constant="20" id="2zl-x2-FJH"/>
+                            <constraint firstItem="FNE-R7-HL1" firstAttribute="leading" secondItem="kiE-CQ-6AA" secondAttribute="leading" id="3DS-1z-bKV"/>
+                            <constraint firstItem="ASp-if-4wE" firstAttribute="leading" secondItem="d9M-wc-uvH" secondAttribute="trailing" constant="20" id="4hM-QH-ltY"/>
+                            <constraint firstItem="w6J-q1-Rlc" firstAttribute="leading" secondItem="isq-Bi-LJS" secondAttribute="trailing" constant="20" id="8Go-21-GIu"/>
+                            <constraint firstAttribute="bottom" secondItem="FNE-R7-HL1" secondAttribute="bottom" id="92W-DS-abV"/>
+                            <constraint firstItem="HXF-Vp-6qZ" firstAttribute="leading" secondItem="kiE-CQ-6AA" secondAttribute="leading" constant="20" id="C4A-PN-gkF"/>
+                            <constraint firstItem="FNE-R7-HL1" firstAttribute="top" secondItem="gnd-0R-MwU" secondAttribute="bottom" constant="10" id="Ct8-es-i6l"/>
+                            <constraint firstItem="isq-Bi-LJS" firstAttribute="leading" secondItem="ASp-if-4wE" secondAttribute="trailing" constant="20" id="D53-4v-Xui"/>
+                            <constraint firstItem="ASp-if-4wE" firstAttribute="top" secondItem="HXF-Vp-6qZ" secondAttribute="bottom" constant="10" id="HcO-Nj-yJT"/>
+                            <constraint firstAttribute="trailing" secondItem="FNE-R7-HL1" secondAttribute="trailing" id="IJx-It-IIJ"/>
+                            <constraint firstItem="gnd-0R-MwU" firstAttribute="leading" secondItem="kiE-CQ-6AA" secondAttribute="leading" constant="20" id="Trg-Bf-q8h"/>
+                            <constraint firstItem="f5k-vX-ZkO" firstAttribute="leading" secondItem="kiE-CQ-6AA" secondAttribute="leading" constant="20" id="cGL-vG-i8N"/>
+                            <constraint firstItem="gnd-0R-MwU" firstAttribute="top" secondItem="HXF-Vp-6qZ" secondAttribute="bottom" constant="10" id="cX4-l6-bDY"/>
+                            <constraint firstItem="w6J-q1-Rlc" firstAttribute="top" secondItem="HXF-Vp-6qZ" secondAttribute="bottom" constant="10" id="mbn-jp-Pbl"/>
+                            <constraint firstAttribute="trailing" secondItem="f5k-vX-ZkO" secondAttribute="trailing" constant="20" id="s3M-V4-6aA"/>
+                            <constraint firstItem="d9M-wc-uvH" firstAttribute="top" secondItem="HXF-Vp-6qZ" secondAttribute="bottom" constant="10" id="tXm-KM-Hed"/>
+                            <constraint firstItem="isq-Bi-LJS" firstAttribute="top" secondItem="HXF-Vp-6qZ" secondAttribute="bottom" constant="10" id="w4h-Bp-mr1"/>
+                            <constraint firstItem="HXF-Vp-6qZ" firstAttribute="top" secondItem="dhu-rW-0DO" secondAttribute="bottom" constant="40" id="ym3-h1-5Nl"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="WebView" id="7aA-u1-6x7"/>
+                    <connections>
+                        <outlet property="apiButton" destination="w6J-q1-Rlc" id="1a2-44-I2I"/>
+                        <outlet property="nextButton" destination="d9M-wc-uvH" id="gA6-sV-boJ"/>
+                        <outlet property="refresh" destination="ASp-if-4wE" id="lXN-2s-Nu1"/>
+                        <outlet property="returnButton" destination="gnd-0R-MwU" id="Nda-kb-vXh"/>
+                        <outlet property="testTextView" destination="f5k-vX-ZkO" id="vp2-LB-zea"/>
+                        <outlet property="testWebView" destination="FNE-R7-HL1" id="TbS-LO-swd"/>
+                        <outlet property="urlButton" destination="isq-Bi-LJS" id="VH2-Ms-WYa"/>
+                        <outlet property="urlTextField" destination="HXF-Vp-6qZ" id="M2g-PR-4jZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCT-5e-LDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-334" y="1052"/>
         </scene>
     </scenes>
     <resources>
